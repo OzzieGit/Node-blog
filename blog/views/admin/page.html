@@ -1,0 +1,23 @@
+<nav aria-label="...">
+  <ul class="pager">
+    {% if page <= 1 %} 
+    <li class="previous disabled">
+      <a href="javascript:"><span aria-hidden="true">&larr;</span>没有了</a>
+    </li>
+    {% else %}
+    <li class="previous">
+      <a href="{{ pageUrl }}?page={{ page - 1 }}"><span aria-hidden="true">&larr;</span>上一页</a>
+    </li>
+    {% endif %}
+    <li>总共有{{ count }}条数据，每页显示{{ limit }}条；总共{{ pages }}页，当前显示{{ page }}页</li>
+    {% if page >= pages %}
+    <li class="next disabled">
+      <a href="javascript:">没有了 <span aria-hidden="true">&rarr;</span></a>
+    </li>
+    {% else %}
+    <li class="next">
+      <a href="{{ pageUrl }}?page={{ page + 1 }}">下一页 <span aria-hidden="true">&rarr;</span></a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>

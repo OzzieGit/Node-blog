@@ -1,0 +1,59 @@
+*{ margin: 0; padding: 0; list-style: none; text-decoration: none; color: #333; line-height: 1; outline: none; }
+body{ background-color: #E9E9E8; font-family: "Microsoft Yahei"; font-size: 14px; }
+.header{ width: 100%; height: 334px; background: url(../images/img.jpg) center center; }
+.menu{ height: 60px; text-align: center; background-color: #fff; margin: 20px 0; font-size: 0; }
+.menu a{ font-size: 16px; line-height: 58px; display: inline-block; padding: 0 5px; margin: 0 10px; }
+.menu a.active, .menu a:hover{ border-bottom: 2px solid #E57C22;}
+.main{ width: 1120px; margin: 0 auto; overflow: hidden; }
+.main .left_list{ width: 800px; float: left; }
+.main .left_list li{ background-color: #fff; margin-bottom: 20px; padding: 30px; box-sizing: border-box;}
+.main .left_list li strong{ display: block; text-align: center; font-size: 16px; }
+.main .left_list li div{ padding: 15px 0; text-align: center; }
+.main .left_list li div span{ margin: 0 10px; }
+.main .left_list li div i{ font-style: inherit; color: #999; margin-left: 10px; }
+.main .left_list li p{ color: #666; line-height: 1.6; margin-bottom: 20px; }
+.main .left_list li a{ display: block; width: 120px; line-height: 30px; color: #fff; background-color: #E57C22; text-align: center; }
+.main .left_list .pager{ background-color: #fff; padding: 20px; text-align: center; overflow: hidden; box-sizing: border-box; }
+.main .left_list .pager a.prev{ float: left;}
+.main .left_list .pager a.next{ float: right;}
+.main .left_content{ width: 800px; float: left;}
+.main .left_content .content{ background-color: #fff; margin-bottom: 20px; padding: 30px; box-sizing: border-box; }
+.main .left_content .content strong{ display: block; text-align: center; font-size: 16px; }
+.main .left_content .content div{ padding: 15px 0; text-align: center; }
+.main .left_content .content div span{ margin: 0 10px; }
+.main .left_content .content div i{ font-style: inherit; color: #999; margin-left: 10px; }
+.main .left_content .content p{ color: #666; line-height: 1.6; margin-bottom: 20px; }
+.main .left_content .comment{ background-color: #fff; margin-bottom: 20px; padding: 30px 30px 1px; box-sizing: border-box; }
+.main .left_content .comment h3 span{ float: right; font-size: 14px; font-weight: 100; color: #666; }
+.main .left_content .comment form{ height: 100px; border: 1px solid #ddd; margin: 20px 0; position: relative; border: 3px solid #1F87BB; }
+.main .left_content .comment form textarea{ position: absolute; left: 0; top: 0; width: 640px; border: none; height: 100%;; padding: 5px 10px; box-sizing: border-box; line-height: 1.6; color: #666; resize: none; font-size: 14px; }
+.main .left_content .comment form span{ position: absolute; right: 0; top: 0; border: none; width: 100px; height: 100%; background-color: #1F87BB; color: #fff; font-size: 16px; text-align: center; line-height: 100px; cursor: pointer; }
+.main .left_content .comment .not_login{ width: 100%; height: 40px; line-height: 40px; margin: 20px 0; color: #fff; text-align: center; background-color: #F86344; }
+.main .left_content .comment_list{ margin: 40px 0 20px; }
+.main .left_content .comment_list li{ margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee;  }
+.main .left_content .comment_list li div{ margin-bottom: 15px; }
+.main .left_content .comment_list li div span.comment_user{ color: #222; }
+.main .left_content .comment_list li div span.time{ float:right; color: #999; }
+.main .left_content .comment_list li p{ line-height: 1.6; color: #666;}
+.main .left_content .comment_list li p.not{ color: #F86344; text-align: center; }
+
+.main .right_side{ width: 300px; float: right; }
+.main .right_side .item{ padding: 20px; box-sizing: border-box; background-color: #fff; margin-bottom: 20px; }
+.main .right_side .top{ margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #eee; font-size: 0; }
+.main .right_side .top span{ font-size: 18px; color: #000; border-bottom: 1px solid #E57C22; padding-bottom: 7px; }
+.main .right_side .item label{ display: block; margin-bottom: 20px; overflow: hidden; }
+.main .right_side .item label b{ float: left; width: 50px; line-height: 32px; text-align: right; font-weight: 100; color: #666; }
+.main .right_side .item label input{ float: right; width: 160px; height: 30px; padding: 0 10px; line-height: 30px; border: 1px solid #ddd; }
+.main .login span, .main .register span{ float: right; margin-bottom: 20px; width: 180px; text-align: center; line-height: 40px; color: #fff; background-color: #E57C22; font-size: 16px; }
+.main .login p, .main .register p{ text-align: right; clear: both;}
+.main .login p a, .main .register p a{ color: #3A3EA9; }
+.main .user span{ display: block; }
+.main .user p{ margin: 20px 0;}
+.main .user a{ color: #3A3EA9; }
+.register_box{ display: none; }
+.toast{ position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.2); z-index: 9999; }
+.msg{ width: 300px; height: 50px; line-height: 50px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; background-color: rgba(255,255,255,0.85); border-radius: 6px; color: #000; text-align: center; padding: 0 20px; }
+
+.comment_pager{ margin: 20px 0; padding: 20px 30px; background-color: #fff; text-align: center; }
+.comment_pager .prev{ float: left; }
+.comment_pager .next{ float: right; }

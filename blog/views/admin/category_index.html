@@ -1,0 +1,28 @@
+{% extends 'template.html' %}
+
+{% block main %}
+<ol class="breadcrumb">
+  <li><a href="/admin">管理首页</a></li>
+  <li><span>分类管理</span></li>
+</ol>
+<h3>分类列表</h3>
+<table class="table table-hover table-bordered table-striped">
+  <tr>
+    <th class="text-left">ID</th>
+    <th class="text-center">分类名称</th>
+    <th class="text-center">操作</th>
+  </tr>
+  {% for category in categories %}
+  <tr>
+    <th class="text-left">{{ category.id }}</th>
+    <th class="text-center">{{ category.name }}</th>
+    <th class="text-center">
+      <a href="/admin/category_edit?id={{ category.id.toString() }}">修改</a> | <a href="/admin/category_del?id={{ category.id.toString() }}">删除</a>
+    </th>
+  </tr>
+  {% endfor %}
+</table>
+
+{% include 'page.html' %}
+
+{% endblock %}

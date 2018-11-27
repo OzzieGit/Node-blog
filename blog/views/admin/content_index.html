@@ -1,0 +1,36 @@
+{% extends 'template.html' %}
+
+{% block main %}
+<ol class="breadcrumb">
+  <li><a href="/admin">管理首页</a></li>
+  <li><span>文章管理</span></li>
+</ol>
+<h3>文章列表</h3>
+<table class="table table-hover table-bordered table-striped">
+  <tr>
+    <th class="text-left">ID</th>
+    <th class="text-center">文章类型</th>
+    <th class="text-center">文章标题</th>
+    <th class="text-center">作者</th>
+    <th class="text-center">添加时间</th>
+    <th class="text-center">阅读量</th>
+    <th class="text-center">操作</th>
+  </tr>
+  {% for content in contents %}
+  <tr>
+    <th class="text-left">{{ content.id }}</th>
+    <th class="text-center">{{ content.category.name }}</th>
+    <th class="text-center">{{ content.title }}</th>
+    <th class="text-center">{{ content.user.username }}</th>
+    <th class="text-center">{{ content.addTime | date('Y年m月d日 H:i:s', -8*60) }}</th>
+    <th class="text-center">{{ content.views }}</th>
+    <th class="text-center">
+      <a href="/admin/content_edit?id={{ content.id.toString() }}">修改</a> | <a href="/admin/content_del?id={{ content.id.toString() }}">删除</a>
+    </th>
+  </tr>
+  {% endfor %}
+</table>
+
+{% include 'page.html' %}
+
+{% endblock %}

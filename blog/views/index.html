@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block main %}
+  <div class="left_list">
+    <ul>
+      {% for content in contents %}
+      <li>
+        <strong>{{ content.title }}</strong>
+        <div>
+          <span>作者:<i>{{ content.user.username }}</i></span>
+          <span>时间:<i>{{ content.addTime | date('Y-m-d H:i:s', -8*60) }}</i></span>
+          <span>阅读:<i>{{ content.views }}</i></span>
+          <span>评论:<i>{{ content.comments.length }}</i></span>
+        </div>
+        <p>{{ content.description }}</p>
+        <a href="/view?id={{ content.id }}&category={{ category }}">阅读全文</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="pager">
+      {% if pages == 0 %}
+        <span>没有相关内容</span>
+      {% else %}
+        {% if page <= 1 %} 
+        <a href="javascript:" class="prev">没有了</a>
+        {% else %}
+        <a href="/?page={{ page - 1 }}&category={{ category }}" class="prev">上一页</a>
+        {% endif %}
+        <span>{{ page }}/{{ pages }}</span>
+        {% if page >= pages %}
+        <a href="javascript:" class="next">没有了</a>
+        {% else %}
+        <a href="/?page={{ page + 1 }}&category={{ category }}" class="next">下一页</a>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

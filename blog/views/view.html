@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block main %}
+<div class="left_content">
+  <div class="content">
+    <strong>{{ content.title }}</strong>
+    <div>
+      <span>作者:<i>{{ content.user.username }}</i></span>
+      <span>时间:<i>{{ content.addTime | date('Y-m-d H:i:s', -8*60) }}</i></span>
+      <span>阅读:<i>{{ content.views }}</i></span>
+      {% if userInfo.id %}
+      <span>评论:<i class="comment_count">0</i></span>
+      {% else %}
+      <span>评论:<i>{{ content.comments.length }}</i></span>
+      {% endif %}
+    </div>
+    <p>{{ content.content }}</p>
+  </div>
+  <div class="comment">
+    <h3>
+      评论 <span class="comment_count">一共有 {% if userInfo.id %}
+          <i>0</i>
+          {% else %}
+          <i>{{ content.comments.length }}</i>
+          {% endif %} 条评论</span>
+    </h3>
+    {% if userInfo.id %}
+    <form>
+      <textarea name="comment" id="comment"></textarea>
+      <input type="hidden" id="contentId" value="{{ content.id }}" />
+      <span class="submit">提交</span>
+    </form>
+    {% else %}
+    <p class="not_login">你还没有登录，请先登录！</p>
+    {% endif %}
+    <ul class="comment_list"></ul>
+  </div>
+  {% if userInfo.id %}
+  <div class="comment_pager">
+    <div class="prev">
+      <a href="javascript:">上一页</a>
+    </div>
+    <span class="show_page"></span>
+    <div class="next">
+      <a href="javascript:">下一页</a>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
