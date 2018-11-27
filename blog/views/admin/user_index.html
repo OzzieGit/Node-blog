@@ -12,6 +12,7 @@
     <th class="text-center">用户名</th>
     <th class="text-center">密码</th>
     <th class="text-center">是否是管理员</th>
+    <th class="text-center">设置权限</th>
   </tr>
   {% for user in users %}
   <tr>
@@ -23,6 +24,13 @@
       是
       {% else %}
       否
+      {% endif %}
+    </th>
+    <th class="text-center">
+      {% if user.isAdmin %}
+      <a href="javascript:;" class="cancel" data-id="{{ user.id }}">取消管理员权限</a>
+      {% else %}
+      <a href="javascript:;" class="add" data-id="{{ user.id }}">设置为管理员</a>
       {% endif %}
     </th>
   </tr>

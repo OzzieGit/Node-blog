@@ -33,7 +33,7 @@ app.use((req, res, next)=>{
 app.use('/admin', require('./routers/admin'))
 app.use('/api', require('./routers/api'))
 app.use('/', require('./routers/main'))
-mongoose.connect("mongodb://localhost:27018/blog", (err) => {
+mongoose.connect("mongodb://localhost:27018/blog", { useNewUrlParser: true }, (err) => {
   if (err) throw err;
   console.log("MongoDB OK");
   app.listen(8080);

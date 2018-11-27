@@ -40,6 +40,34 @@ router.get('/user_index', (req, res, next) => {
     })
   })
 })
+// 取消管理员
+router.post('/user_index/cancel', (req, res, next)=>{
+  let id = req.body.id;
+  User.findOne({
+    _id: id
+  }).then(user=>{
+    user.isAdmin = false;
+    user.save();
+    res.json({
+      code:200,
+      message:"取消成功"
+    })
+  })
+})
+// 设置管理员
+router.post('/user_index/add', (req, res, next)=>{
+  let id = req.body.id;
+  User.findOne({
+    _id: id
+  }).then(user=>{
+    user.isAdmin = true;
+    user.save();
+    res.json({
+      code:200,
+      message:"设置成功"
+    })
+  })
+})
 
 // 分类
 router.get('/category_index', (req, res) => {
